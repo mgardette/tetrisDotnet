@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System;
 using System.Timers;
 
 namespace tetrisDotnet
@@ -54,16 +53,25 @@ namespace tetrisDotnet
                 Grid.SetColumn(t, Grid.GetColumn(t) + 1);
 
             }
-            else if (e.Key == Key.Down && Grid.GetRow(t) != 19)
+            else if (e.Key == Key.Up && Grid.GetRow(t) != 19)
             {
                 Grid.SetRow(t, 19);
+
+            }
+            else if (e.Key == Key.Down && Grid.GetRow(t) != 19)
+            {
+                Grid.SetRow(t, Grid.GetRow(t) + 1);
+
+                // Reset du timer
+                timer.Stop();
+                timer.Start();
 
             }
         }
         private void SetTimer()
         {
             // Create a timer with a two second interval.
-            timer = new System.Timers.Timer(1500);
+            timer = new Timer(1500);
             // Hook up the Elapsed event for the timer. 
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
