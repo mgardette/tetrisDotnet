@@ -36,3 +36,5 @@ F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotne
 F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.dll
 F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.pdb
 F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.genruntimeconfig.cache
+F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\WpfAnimatedGif.dll
+F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.csproj.CopyComplete

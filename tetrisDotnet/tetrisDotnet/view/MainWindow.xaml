@@ -4,10 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tetrisDotnet"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="Tetris" Height="980" Width="980" KeyDown="Window_KeyDown"
         WindowStartupLocation="CenterScreen">
+
+
     <Grid>
+        <Grid.Background >
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Image gif:ImageBehavior.AnimatedSource="tetrisFond.gif"
+                   gif:ImageBehavior.AutoStart="True"
+                   gif:ImageBehavior.RepeatBehavior="1"/>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Margin="620,80,0,0" VerticalAlignment="Top" Height="75"  Width="265"  Source="/view/The_Tetris_Company_logo.png" >
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
         <Grid x:Name="gridPlateau" Height="800" Width="400" Margin="0,0,400,0" ShowGridLines="true" Background="black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -44,7 +64,5 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Label Content="TETRIS" HorizontalAlignment="Left" Margin="620,80,0,0" VerticalAlignment="Top" Height="75" Width="265" FontSize="50" HorizontalContentAlignment="Center" FontFamily="Comic sans ms"/>
-
     </Grid>
 </Window>

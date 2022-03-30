@@ -7,7 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ressources\NewFolder\**" />
+    <EmbeddedResource Remove="ressources\NewFolder\**" />
+    <None Remove="ressources\NewFolder\**" />
+    <Page Remove="ressources\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="view\tetrisFond.gif" />
+    <None Remove="view\The_Tetris_Company_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="view\tetrisFond.gif" />
+    <Resource Include="view\The_Tetris_Company_logo.png" />
   </ItemGroup>
 
 </Project>
