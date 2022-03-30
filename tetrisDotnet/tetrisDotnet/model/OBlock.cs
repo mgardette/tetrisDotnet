@@ -4,7 +4,7 @@ using System.Text;
 
 namespace tetrisDotnet.model
 {
-    class OBlock : Block
+    public class OBlock : Block
     {
         private readonly Position[][] tiles = new Position[][]
         {

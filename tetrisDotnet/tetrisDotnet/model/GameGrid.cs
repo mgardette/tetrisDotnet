@@ -4,7 +4,7 @@ using System.Text;
 
 namespace tetrisDotnet.model
 {
-    class GameGrid
+    public class GameGrid
     {
         public int[,] Grid { get; set; }
 
