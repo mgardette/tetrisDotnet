@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System;
+using System.Timers;
 
 namespace tetrisDotnet
 {
@@ -21,13 +23,22 @@ namespace tetrisDotnet
     public partial class MainWindow : Window
     {
         Rectangle t = new Rectangle() { Fill = Brushes.Red };
+        private static System.Timers.Timer timer;
 
         public MainWindow()
         {
+            SetTimer();
+
             InitializeComponent();
             Grid.SetColumn(t, 5);
-            Grid.SetRow(t, 10);
-            grid_plateau.Children.Add(t);
+            Grid.SetRow(t, 0);
+
+            //Ajout de l'image à la Grid
+            //Grid.Children.Add(img);
+            //Ceci à la colonne 0
+            //Grid.SetColumn(img, 0);
+            //Grid.SetRow(t, 5);
+            gridPlateau.Children.Add(t);
 
         }
 
@@ -43,6 +54,41 @@ namespace tetrisDotnet
                 Grid.SetColumn(t, Grid.GetColumn(t) + 1);
 
             }
+            else if (e.Key == Key.Down && Grid.GetRow(t) != 19)
+            {
+                Grid.SetRow(t, 19);
+
+            }
+        }
+        private void SetTimer()
+        {
+            // Create a timer with a two second interval.
+            timer = new System.Timers.Timer(1500);
+            // Hook up the Elapsed event for the timer. 
+            timer.Elapsed += OnTimedEvent;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            synchronize(() =>
+            {
+                if (Grid.GetRow(t) != 19)
+                {
+                    Grid.SetRow(t, Grid.GetRow(t) + 1);
+                }
+            });
+        }
+
+        private static void synchronize(Action a)
+        {
+            Application app = Application.Current;
+            if (app != null && app.Dispatcher != null)
+            {
+                Application.Current.Dispatcher.Invoke(a);
+            }
         }
     }
 }
+
