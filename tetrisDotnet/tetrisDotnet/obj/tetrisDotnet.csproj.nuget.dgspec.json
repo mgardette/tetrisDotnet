@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\Mes documents\\GitHub\\tetrisDotNet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {}
+    "F:\\tempMathieu\\tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {}
   },
   "projects": {
-    "Z:\\Mes documents\\GitHub\\tetrisDotNet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {
+    "F:\\tempMathieu\\tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Mes documents\\GitHub\\tetrisDotNet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+        "projectUniqueName": "F:\\tempMathieu\\tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
         "projectName": "tetrisDotnet",
-        "projectPath": "Z:\\Mes documents\\GitHub\\tetrisDotNet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+        "projectPath": "F:\\tempMathieu\\tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
         "packagesPath": "C:\\Users\\p2111007\\.nuget\\packages\\",
-        "outputPath": "Z:\\Mes documents\\GitHub\\tetrisDotNet\\tetrisDotnet\\tetrisDotnet\\obj\\",
+        "outputPath": "F:\\tempMathieu\\tetris\\tetrisDotnet\\tetrisDotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
