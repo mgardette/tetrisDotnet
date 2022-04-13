@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\IUT\\net\\Tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {}
+    "C:\\Users\\p2111007\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {}
   },
   "projects": {
-    "F:\\IUT\\net\\Tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {
+    "C:\\Users\\p2111007\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\IUT\\net\\Tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+        "projectUniqueName": "C:\\Users\\p2111007\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
         "projectName": "tetrisDotnet",
-        "projectPath": "F:\\IUT\\net\\Tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
-        "packagesPath": "C:\\Users\\p2110997\\.nuget\\packages\\",
-        "outputPath": "F:\\IUT\\net\\Tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\obj\\",
+        "projectPath": "C:\\Users\\p2111007\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+        "packagesPath": "C:\\Users\\p2111007\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\p2111007\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\p2110997\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\p2111007\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,6 +43,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "WpfAnimatedGif": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
