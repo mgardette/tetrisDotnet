@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "Cq39HzQkoKrAw6ZDlHzcYHWizHXpIFlNS/Ii078t2rSf1/+2WHi/nqIhlsxcuP8eB3rDPKcNMtVHZKqev4jTzg==",
+  "success": true,
+  "projectFilePath": "F:\\Universite\\GitHub\\tetris\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\p2111007\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache F:\\Universite\\GitHub\\tetris\\tetrisDotnet\\tetrisDotnet\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
+}
