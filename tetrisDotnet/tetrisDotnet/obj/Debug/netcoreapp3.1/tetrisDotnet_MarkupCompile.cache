@@ -4,25 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< Updated upstream
-F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\
-=======
 F:\Universite\GitHub\tetris\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\
->>>>>>> Stashed changes
 tetrisDotnet
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-<<<<<<< Updated upstream
-F:\tempMathieu\git\tetrisDotnet\tetrisDotnet\App.xaml
-=======
 F:\Universite\GitHub\tetris\tetrisDotnet\tetrisDotnet\App.xaml
->>>>>>> Stashed changes
 1-521423388
 
 4696986383
 193259782132
 view\MainWindow.xaml;
 
-True
+False
 
