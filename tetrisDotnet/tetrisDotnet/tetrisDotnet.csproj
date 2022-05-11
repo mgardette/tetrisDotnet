@@ -7,6 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="view\ressources\tetrisFond.gif" />
+    <None Remove="view\ressources\The_Tetris_Company_logo.png" />
+    <None Remove="view\tetrisFond.gif" />
+    <None Remove="view\The_Tetris_Company_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="view\ressources\tetrisFond.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\ressources\The_Tetris_Company_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\tetrisFond.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\The_Tetris_Company_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="view-model\" />
   </ItemGroup>
 
