@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y9pbaNNpSsmfIjQP6zycgoe7sUu/WOvpMVmsK7jFnYHX5XvB8Ls7/US2lpWd0vlf2ZikaTfV60681A4xXl8W2A==",
+  "dgSpecHash": "vUvkNwIXCzNhi1Pa/uuBMQLChLwiKQ5dwUEvHxEBrAEx65/IgIlrHr+zaVM8LLRAppWKAMsuJazqHXpoOz6g3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mat-m\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+  "projectFilePath": "C:\\Users\\mat-m\\source\\repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mat-m\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512"
   ],

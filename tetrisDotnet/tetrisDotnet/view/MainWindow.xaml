@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Tetris" Height="980" Width="980" KeyDown="Window_KeyDown"
         WindowStartupLocation="CenterScreen">
-
+test
 
     <Grid>
         <Grid.Background >

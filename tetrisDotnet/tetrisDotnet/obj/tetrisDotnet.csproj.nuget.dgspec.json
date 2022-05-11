@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mat-m\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {}
+    "C:\\Users\\mat-m\\source\\repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mat-m\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {
+    "C:\\Users\\mat-m\\source\\repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mat-m\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+        "projectUniqueName": "C:\\Users\\mat-m\\source\\repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
         "projectName": "tetrisDotnet",
-        "projectPath": "C:\\Users\\mat-m\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
+        "projectPath": "C:\\Users\\mat-m\\source\\repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet.csproj",
         "packagesPath": "C:\\Users\\mat-m\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mat-m\\Source\\Repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\obj\\",
+        "outputPath": "C:\\Users\\mat-m\\source\\repos\\tetrisDotnet\\tetrisDotnet\\tetrisDotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
