@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
+using tetrisDotnet.view_model;
 
 namespace tetrisDotnet
 {
@@ -22,12 +23,12 @@ namespace tetrisDotnet
     public partial class MainWindow : Window
     {
         Rectangle t = new Rectangle() { Fill = Brushes.Red };
-        private static System.Timers.Timer timer;
+        ViewModel viewModel = new ViewModel();
+
 
         public MainWindow()
         {
-            SetTimer();
-
+            this.DataContext = viewModel;
             InitializeComponent();
             Grid.SetColumn(t, 5);
             Grid.SetRow(t, 0);
@@ -43,60 +44,24 @@ namespace tetrisDotnet
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Left && Grid.GetColumn(t) != 0)
+            if (e.Key == Key.Left)
             {
-                Grid.SetColumn(t,Grid.GetColumn(t)-1);
-
+                viewModel.moveBlockSide("left");
             }
-            else if (e.Key == Key.Right && Grid.GetColumn(t) != 10)
+            else if (e.Key == Key.Right)
             {
-                Grid.SetColumn(t, Grid.GetColumn(t) + 1);
-
+                viewModel.moveBlockSide("right");
             }
             else if (e.Key == Key.Up && Grid.GetRow(t) != 19)
             {
-                Grid.SetRow(t, 19);
-
+                //TODO piece qui tombe d'un coup
             }
             else if (e.Key == Key.Down && Grid.GetRow(t) != 19)
             {
-                Grid.SetRow(t, Grid.GetRow(t) + 1);
-
-                // Reset du timer
-                timer.Stop();
-                timer.Start();
-
+                viewModel.moveBlockSide("down");
             }
         }
-        private void SetTimer()
-        {
-            // Create a timer with a two second interval.
-            timer = new Timer(1500);
-            // Hook up the Elapsed event for the timer. 
-            timer.Elapsed += OnTimedEvent;
-            timer.AutoReset = true;
-            timer.Enabled = true;
-        }
-
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            synchronize(() =>
-            {
-                if (Grid.GetRow(t) != 19)
-                {
-                    Grid.SetRow(t, Grid.GetRow(t) + 1);
-                }
-            });
-        }
-
-        private static void synchronize(Action a)
-        {
-            Application app = Application.Current;
-            if (app != null && app.Dispatcher != null)
-            {
-                Application.Current.Dispatcher.Invoke(a);
-            }
-        }
+        
     }
 }
 

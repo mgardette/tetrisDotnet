@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Timers;
 
 namespace tetrisDotnet.model
 {
     public class GameState
     {
         //public Block currentBlock;
+        private static System.Timers.Timer timer;
 
         public Block CurrentBlock
         {
@@ -25,9 +29,10 @@ namespace tetrisDotnet.model
         public GameState()
         {
             GameGrid = new GameGrid();
+            SetTimer();
             BlockQueue = new BlockQueue();
             CurrentBlock = BlockQueue.UpdateBlock();
-        }
+    }
 
         private bool BlockFits()
         {
@@ -108,6 +113,32 @@ namespace tetrisDotnet.model
             {
                 CurrentBlock.Move(-1, 0);
                 PlaceBlock();
+            }
+        }
+        private void SetTimer()
+        {
+            // Create a timer with a two second interval.
+            timer = new Timer(1500);
+            // Hook up the Elapsed event for the timer. 
+            timer.Elapsed += OnTimedEvent;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            synchronize(() =>
+            {
+                MoveBlockDown();
+            });
+        }
+
+        private static void synchronize(Action a)
+        {
+            Application app = Application.Current;
+            if (app != null && app.Dispatcher != null)
+            {
+                Application.Current.Dispatcher.Invoke(a);
             }
         }
     }
