@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tetrisDotnet"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:views="clr-namespace:tetrisDotnet.view"
         mc:Ignorable="d"
         Title="Tetris" Height="980" Width="980" KeyDown="Window_KeyDown" 
         WindowStartupLocation="CenterScreen">
 
     <Grid>
+        <views:GameBoard x:Name="GameBoard"/>
+        <Button Margin="711,732,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Padding="10,5" Command="{Binding DataContext.StartCommand, ElementName=GameBoard}">Start</Button>
         <Grid.Background >
             <VisualBrush>
                 <VisualBrush.Visual>
@@ -27,24 +31,5 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions> 
-            <Canvas x:Name="gridPlateau"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Background="Black"
-                    Width="400"
-                    Height="800"
-                    Margin="0,0,400,0"
-                    />
-        </Grid>
     </Grid>
 </Window>

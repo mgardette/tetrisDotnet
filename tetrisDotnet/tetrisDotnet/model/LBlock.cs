@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media;
 
 namespace tetrisDotnet.model
 {
@@ -13,6 +14,9 @@ namespace tetrisDotnet.model
             new Position[] { new Position(1,0), new Position(1, 1), new Position(1, 2), new Position(2, 0) },
             new Position[] { new Position(0,0), new Position(0, 1), new Position(1, 1), new Position(2, 1) },
         };
+
+        private readonly Color color = Colors.Blue;
+        protected override Color Color => color;
 
         public override int Id => 3;
         protected override Position StartOffset => new Position(0, 3);

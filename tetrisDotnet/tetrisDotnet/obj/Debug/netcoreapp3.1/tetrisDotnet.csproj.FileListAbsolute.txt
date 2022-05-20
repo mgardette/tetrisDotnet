@@ -91,3 +91,4 @@ C:\Users\User\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netc
 C:\Users\User\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.dll
 C:\Users\User\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.pdb
 C:\Users\User\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\tetrisDotnet.genruntimeconfig.cache
+C:\Users\User\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\view\GameBoard.g.cs

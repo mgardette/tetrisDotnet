@@ -29,10 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="view-model\" />
+    <Folder Include="viewmodel\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
+    <PackageReference Include="ReactiveUI" Version="18.0.10" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 

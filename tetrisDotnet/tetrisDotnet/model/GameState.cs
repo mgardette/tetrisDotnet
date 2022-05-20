@@ -4,6 +4,8 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Timers;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace tetrisDotnet.model
 {
@@ -44,7 +46,17 @@ namespace tetrisDotnet.model
             SetTimer();
             BlockQueue = new BlockQueue();
             CurrentBlock = BlockQueue.UpdateBlock();
-    }
+        }
+
+        public async Task Start()
+        {
+            var rand = new Random();
+            while (true)
+            {
+                MoveBlockDown();
+                await Task.Delay(1000);
+            }
+        }
 
         private bool BlockFits()
         {
@@ -114,7 +126,8 @@ namespace tetrisDotnet.model
             }
             else
             {
-                CurrentBlock = BlockQueue.UpdateBlock();            }
+                CurrentBlock = BlockQueue.UpdateBlock();      
+            }
         }
 
         public void MoveBlockDown()
@@ -143,6 +156,20 @@ namespace tetrisDotnet.model
             {
                 MoveBlockDown();
             });
+        }
+
+        public void MoveBlockSide(Key side)
+        {
+            switch (side)
+            {
+                case Key.Right:
+                    MoveBlockRight();
+                    break;
+
+                case Key.Left:
+                    MoveBlockLeft();
+                    break;
+            }
         }
 
         private static void synchronize(Action a)

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media;
 
 namespace tetrisDotnet.model
 {
     public abstract class Block
     {
         protected abstract Position[][] Tiles { get; }
+        protected abstract Color Color { get; }
         protected abstract Position StartOffset { get; }
         public abstract int Id { get; }
 
