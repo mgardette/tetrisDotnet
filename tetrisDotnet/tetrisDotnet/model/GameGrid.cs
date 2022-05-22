@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media;
 
 namespace tetrisDotnet.model
 {
@@ -8,9 +9,13 @@ namespace tetrisDotnet.model
     {
         public int[,] Grid { get; set; }
 
-        private const int ColNum = 10;
+        public int ColNum = 10;
 
-        private const int RowNum = 20;
+        public int RowNum = 20;
+
+        public int CellSize = 20;
+
+        public Color?[,] Cells { get; } = new Color?[10, 20];
 
         public GameGrid()
         {
@@ -77,6 +82,16 @@ namespace tetrisDotnet.model
                 this.Grid[r + incr, c] = this.Grid[r, c];
                 this.Grid[r, c] = 0;
             }
+        }
+
+        public bool IsEmpty(int r, int c)
+        {
+            return IsInside(r, c) && Grid[r, c] == 0;
+        }
+
+        public bool IsInside(int r, int c)
+        {
+            return r >= 0 && r < RowNum && c >= 0 && c < ColNum;
         }
 
         public int ClearFullRows()

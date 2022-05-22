@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Timers;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace tetrisDotnet.model
 {
@@ -43,18 +44,34 @@ namespace tetrisDotnet.model
         public GameState()
         {
             GameGrid = new GameGrid();
-            SetTimer();
             BlockQueue = new BlockQueue();
             CurrentBlock = BlockQueue.UpdateBlock();
         }
 
         public async Task Start()
         {
+            SetTimer();
             var rand = new Random();
-            while (true)
+            do
             {
                 MoveBlockDown();
-                await Task.Delay(1000);
+                await Task.Delay(500);
+            } while (/*CurrentBlock.TilePositions(). > 0*/);
+            while (true)
+            {
+                synchronize(async() =>
+                {
+                    MoveBlockDown();
+                    await Task.Delay(1000);
+                });
+            }
+        }
+        private static void synchronize(Action a)
+        {
+            Application app = Application.Current;
+            if (app != null && app.Dispatcher != null)
+            {
+                Application.Current.Dispatcher.Invoke(a);
             }
         }
 
@@ -140,6 +157,36 @@ namespace tetrisDotnet.model
                 PlaceBlock();
             }
         }
+
+        public void DropBlock()
+        {
+            CurrentBlock.Move(BlockDropDistance(), 0);
+            PlaceBlock();
+        }
+
+        private int TileDropDistance(Position p)
+        {
+            int drop = 0;
+
+            while (GameGrid.IsEmpty(p.Row + drop + 1, p.Column))
+            {
+                drop++;
+            }
+
+            return drop;
+        }
+
+        public int BlockDropDistance()
+        {
+            int drop = GameGrid.RowNum;
+
+            foreach (Position p in CurrentBlock.TilePositions())
+            {
+                drop = System.Math.Min(drop, TileDropDistance(p));
+            }
+
+            return drop;
+        }
         private void SetTimer()
         {
             // Create a timer with a two second interval.
@@ -152,33 +199,65 @@ namespace tetrisDotnet.model
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            synchronize(() =>
-            {
+            //synchronize(() =>
+            //{
                 MoveBlockDown();
-            });
+            //});
         }
 
         public void MoveBlockSide(Key side)
         {
             switch (side)
             {
-                case Key.Right:
-                    MoveBlockRight();
-                    break;
-
                 case Key.Left:
                     MoveBlockLeft();
                     break;
+                case Key.Right:
+                    MoveBlockRight();
+                    break;
+                case Key.Down:
+                    MoveBlockDown();
+                    break;
+                case Key.Up:
+                    RotateBlockCW();
+                    break;
+                case Key.Z:
+                    RotateBlockCCW();
+                    break;
+                /*case Key.C:
+                    HoldBlock();
+                    break;
+                case Key.Space:
+                    DropBlock();
+                    break;*/
+                default:
+                    return;
             }
+        }
+    }
+
+    internal class CellChanges
+    {
+        public CellChanges(CellChange[] changes)
+        {
+            Changes = changes;
         }
 
-        private static void synchronize(Action a)
+        public CellChange[] Changes { get; }
+    }
+
+    internal class CellChange
+    {
+        public CellChange(int x, int y, Color? color)
         {
-            Application app = Application.Current;
-            if (app != null && app.Dispatcher != null)
-            {
-                Application.Current.Dispatcher.Invoke(a);
-            }
+            this.CellX = x;
+            this.CellY = y;
+            Color = color;
         }
+
+        public int CellX { get; set; }
+        public int CellY { get; set; }
+
+        public Color? Color { get; }
     }
 }
