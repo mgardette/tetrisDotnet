@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[2022.1.0, )"
             },
+            "MvvmLightLibs": {
+              "target": "Package",
+              "version": "[5.4.1.1, )"
+            },
             "ReactiveUI": {
               "target": "Package",
               "version": "[18.0.10, )"

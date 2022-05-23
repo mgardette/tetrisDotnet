@@ -55,7 +55,7 @@ namespace tetrisDotnet.view {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/tetrisDotnet;V1.0.0.0;component/view/gameboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/tetrisDotnet;component/view/gameboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\view\GameBoard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

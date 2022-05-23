@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using GalaSoft.MvvmLight.Command;
+using JetBrains.Annotations;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Reactive;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -24,7 +26,6 @@ namespace tetrisDotnet.viewmodel
         public ViewModel()
         {
             var gameGrid = new GameGrid();
-            StartCommand = ReactiveCommand.CreateFromTask(gameState.Start);
             KeyPressedCommand = ReactiveCommand.Create<string>(k =>
                 gameState.MoveBlockSide((Key)Enum.Parse(typeof(Key), k)));
             
@@ -33,6 +34,13 @@ namespace tetrisDotnet.viewmodel
             Cells = CreateCellViewModels(gameGrid);
             //gameState.CellChanges.Subscribe(OnCellModelChanges);
         }
+
+        public RelayCommand StartCommand => new RelayCommand(() => {
+            Thread thread = new Thread(gameState.Start);
+            thread.IsBackground = true;
+            thread.Start();
+
+        });
 
         private void OnCellModelChanges(CellChanges changes)
         {
@@ -62,7 +70,7 @@ namespace tetrisDotnet.viewmodel
             return cells;
         }
 
-        public ReactiveCommand<Unit, Unit> StartCommand { get; }
+        //public ReactiveCommand<Unit, Unit> StartCommand { get; }
 
         public ReactiveCommand<string, Unit> KeyPressedCommand { get; }
 

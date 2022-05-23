@@ -7,6 +7,7 @@ using System.Timers;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Threading;
 
 namespace tetrisDotnet.model
 {
@@ -38,34 +39,34 @@ namespace tetrisDotnet.model
         }
 
         public GameGrid GameGrid { get; }
-        public BlockQueue BlockQueue { get; }
         public bool GameOver { get; private set; }
 
         public GameState()
         {
             GameGrid = new GameGrid();
             BlockQueue = new BlockQueue();
-            CurrentBlock = BlockQueue.UpdateBlock();
         }
+        public BlockQueue BlockQueue { get; }
 
-        public async Task Start()
+        public void Start()
         {
-            SetTimer();
+            //SetTimer();
             var rand = new Random();
-            do
-            {
-                MoveBlockDown();
-                await Task.Delay(500);
-            } while (/*CurrentBlock.TilePositions(). > 0*/);
             while (true)
             {
-                synchronize(async() =>
+                bool verif = true;
+                CurrentBlock = BlockQueue.UpdateBlock();
+                do
                 {
-                    MoveBlockDown();
-                    await Task.Delay(1000);
-                });
+                    foreach (Position p in CurrentBlock.TilePositions())
+                    {
+                        verif = false;
+                    }
+                    Thread.Sleep(1000);
+                } while (verif);
             }
         }
+
         private static void synchronize(Action a)
         {
             Application app = Application.Current;
@@ -190,7 +191,7 @@ namespace tetrisDotnet.model
         private void SetTimer()
         {
             // Create a timer with a two second interval.
-            timer = new Timer(1500);
+            //timer = new Timer(1500);
             // Hook up the Elapsed event for the timer. 
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
@@ -234,6 +235,7 @@ namespace tetrisDotnet.model
                     return;
             }
         }
+       // public IObservable<CellChanges> CellChanges { get; }
     }
 
     internal class CellChanges
