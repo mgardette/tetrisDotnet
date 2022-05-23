@@ -19,20 +19,18 @@ namespace tetrisDotnet.viewmodel
 {
     class ViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public GameState gameState = new GameState();
 
         private readonly cellviewmodel[] _cells = new cellviewmodel[10 * 20];
         public ViewModel()
         {
             var gameGrid = new GameGrid();
+            //StartCommand = ReactiveCommand.CreateFromTask(gameState.Start);
             KeyPressedCommand = ReactiveCommand.Create<string>(k =>
                 gameState.MoveBlockSide((Key)Enum.Parse(typeof(Key), k)));
-            
-
 
             Cells = CreateCellViewModels(gameGrid);
-            //gameState.CellChanges.Subscribe(OnCellModelChanges);
+            gameState.CellChanges.Subscribe(OnCellModelChanges);
         }
 
         public RelayCommand StartCommand => new RelayCommand(() => {
@@ -78,6 +76,34 @@ namespace tetrisDotnet.viewmodel
         {
             gameState.MoveBlockDown();
         }
+    }
+
+    class cellviewmodel : INotifyPropertyChanged
+    {
+        private Color _color;
+
+        public cellviewmodel(int x, int y)
+        {
+            X = x;
+            Y = y;
+            _color = Colors.DarkGray;
+        }
+
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public Color Color
+        {
+            get => _color;
+            set
+            {
+                if (value.Equals(_color)) return;
+                _color = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

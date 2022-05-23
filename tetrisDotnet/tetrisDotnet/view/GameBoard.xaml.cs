@@ -2,8 +2,9 @@
 
 namespace tetrisDotnet.view
 {
+    /// <inheritdoc cref="UserControl" />
     /// <summary>
-    /// Logique d'interaction pour GameBoard.xaml
+    /// Interaction logic for GameBoardView.xaml
     /// </summary>
     public partial class GameBoard : UserControl
     {

@@ -10,6 +10,11 @@
         Title="Tetris" Height="980" Width="980"  
         WindowStartupLocation="CenterScreen">
 
+    <Window.InputBindings>
+        <KeyBinding Key="Left" Command="{Binding KeyPressedCommand}" CommandParameter="Left" />
+        <KeyBinding Key="Right" Command="{Binding KeyPressedCommand}" CommandParameter="Right" />
+        <KeyBinding Key="Down" Command="{Binding KeyPressedCommand}" CommandParameter="Down" />
+    </Window.InputBindings>
     <Grid>
         <views:GameBoard x:Name="GameBoard"/>
         <Button Margin="711,732,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"

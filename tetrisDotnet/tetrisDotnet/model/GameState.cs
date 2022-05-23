@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Threading;
+using System.Reactive.Subjects;
+using System.Reactive.Linq;
 
 namespace tetrisDotnet.model
 {
-    public class GameState
+    class GameState
     {
         private Block currentBlock;
 
         //public Block currentBlock;
         private static System.Timers.Timer timer;
+
+        private readonly Subject<CellChanges> changesToPush = new Subject<CellChanges>();
 
         public Block CurrentBlock
         {
@@ -45,7 +49,9 @@ namespace tetrisDotnet.model
         {
             GameGrid = new GameGrid();
             BlockQueue = new BlockQueue();
+            CellChanges = changesToPush.AsObservable();
         }
+
         public BlockQueue BlockQueue { get; }
 
         public void Start()
@@ -132,10 +138,13 @@ namespace tetrisDotnet.model
 
         private void PlaceBlock()
         {
+            List<CellChange> changes = new List<CellChange>();
             foreach(Position p in CurrentBlock.TilePositions())
             {
                 GameGrid.Grid[p.Row, p.Column] = CurrentBlock.Id;
+                changes = SetCell(p.Row, p.Column, CurrentBlock.getColor());
             }
+            changesToPush.OnNext(new model.CellChanges(changes.ToArray()));
             GameGrid.ClearFullRows();
 
             if (IsGameOver())
@@ -146,6 +155,21 @@ namespace tetrisDotnet.model
             {
                 CurrentBlock = BlockQueue.UpdateBlock();      
             }
+        }
+
+        public List<CellChange> SetCell(int x, int y, Color? color)
+        {
+            if (x < 0 || x >= GameGrid.RowNum || y < 0 || y >= GameGrid.ColNum) return null;
+
+            var changes = new List<CellChange>();
+
+            if (GameGrid.Cells[x, y] != color)
+            {
+                changes.Add(new CellChange(x, y, color));
+                GameGrid.Cells[x, y] = color;
+            }
+
+            return changes;
         }
 
         public void MoveBlockDown()
@@ -211,6 +235,7 @@ namespace tetrisDotnet.model
             switch (side)
             {
                 case Key.Left:
+                    MessageBox.Show("te");
                     MoveBlockLeft();
                     break;
                 case Key.Right:
@@ -219,13 +244,14 @@ namespace tetrisDotnet.model
                 case Key.Down:
                     MoveBlockDown();
                     break;
+                /* TODO finir les touches du jeu 
                 case Key.Up:
                     RotateBlockCW();
                     break;
                 case Key.Z:
                     RotateBlockCCW();
                     break;
-                /*case Key.C:
+                case Key.C:
                     HoldBlock();
                     break;
                 case Key.Space:
@@ -235,7 +261,7 @@ namespace tetrisDotnet.model
                     return;
             }
         }
-       // public IObservable<CellChanges> CellChanges { get; }
+        public IObservable<CellChanges> CellChanges { get; }
     }
 
     internal class CellChanges

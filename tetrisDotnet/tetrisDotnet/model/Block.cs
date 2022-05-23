@@ -51,6 +51,11 @@ namespace tetrisDotnet.model
             offset.Column += columns;
         }
 
+        public Color getColor()
+        {
+            return this.Color;
+        }
+
         public void Reset()
         {
             rotationState = 0;
