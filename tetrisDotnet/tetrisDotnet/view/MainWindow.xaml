@@ -19,7 +19,7 @@
         <views:GameBoard x:Name="GameBoard"/>
         <Button Margin="711,732,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
                 Padding="10,5" Command="{Binding DataContext.StartCommand, ElementName=GameBoard}">Start</Button>
-        <Grid.Background >
+        <!--<Grid.Background >
             <VisualBrush>
                 <VisualBrush.Visual>
                     <Image gif:ImageBehavior.AnimatedSource="tetrisFond.gif"
@@ -27,7 +27,7 @@
                    gif:ImageBehavior.RepeatBehavior="1"/>
                 </VisualBrush.Visual>
             </VisualBrush>
-        </Grid.Background>
+        </Grid.Background>-->
         <!--<Image HorizontalAlignment="Left" Margin="620,80,0,0" VerticalAlignment="Top" Height="75"  Width="265"  Source="/view/The_Tetris_Company_logo.png" >
             <Image.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

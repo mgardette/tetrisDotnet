@@ -15,7 +15,7 @@ namespace tetrisDotnet.model
 
         public int CellSize = 20;
 
-        public Color?[,] Cells { get; } = new Color?[10, 20];
+        public Color?[,] Cells { get; } = new Color?[20, 10];
 
         public GameGrid()
         {

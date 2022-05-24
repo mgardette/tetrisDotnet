@@ -45,11 +45,10 @@ namespace tetrisDotnet.viewmodel
         {
             foreach (CellChange change in changes.Changes)
             {
-                // Todo revoir la logique
-                if(change != null)
-                {
+                //if(change != null)
+                //{
                     _cells[190 - change.CellY * 10 + change.CellX].Color = change.Color ?? Colors.DarkGray;
-                }
+                //}
                 string test = "test";
             }
             string testt = "test";
@@ -59,15 +58,15 @@ namespace tetrisDotnet.viewmodel
 
         private ReadOnlyCollection<cellviewmodel> CreateCellViewModels(GameGrid gameGrid)
         {
-            for (int x = 0; x < gameGrid.ColNum; x++)
-                for (int y = 0; y < gameGrid.RowNum; y++)
+            for (int x = 0; x < 10; x++)
+                for (int y = 0; y < 20; y++)
                 {
-                    _cells[x + gameGrid.ColNum * y] =
+                    _cells[x + 10 * y] =
                         new cellviewmodel(
-                            x * (gameGrid.CellSize + 1),
-                            (gameGrid.RowNum - y) * (gameGrid.CellSize + 1))
+                            x * (20 + 1),
+                            (20 - y) * (20 + 1))
                         {
-                            Color = gameGrid.Cells[x, y] ?? Colors.DarkGray
+                            Color = gameGrid.Cells[y, x] ?? Colors.DarkGray
                         };
                 }
 
