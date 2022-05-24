@@ -64,10 +64,12 @@ namespace tetrisDotnet.model
                 CurrentBlock = BlockQueue.UpdateBlock();
                 do
                 {
+                    MoveBlockDown();
                     foreach (Position p in CurrentBlock.TilePositions())
                     {
                         verif = false;
                     }
+
                     Thread.Sleep(1000);
                 } while (verif);
             }
@@ -84,15 +86,16 @@ namespace tetrisDotnet.model
 
         private bool BlockFits()
         {
+            bool result = true;
             foreach (Position p in CurrentBlock.TilePositions())
             {
                 if (!GameGrid.isEmpty(p.Row, p.Column))
                 {
-                    return false;
+                    result = false;
                 }
             }
 
-            return true;
+            return result;
         }
 
         public void RotateBlockCW()
@@ -142,8 +145,9 @@ namespace tetrisDotnet.model
             foreach(Position p in CurrentBlock.TilePositions())
             {
                 GameGrid.Grid[p.Row, p.Column] = CurrentBlock.Id;
-                changes = SetCell(p.Row, p.Column, CurrentBlock.getColor());
+                changes.Add(SetCell(p.Row, p.Column, CurrentBlock.getColor()));
             }
+
             changesToPush.OnNext(new model.CellChanges(changes.ToArray()));
             GameGrid.ClearFullRows();
 
@@ -157,19 +161,18 @@ namespace tetrisDotnet.model
             }
         }
 
-        public List<CellChange> SetCell(int x, int y, Color? color)
+        public CellChange SetCell(int x, int y, Color? color)
         {
             if (x < 0 || x >= GameGrid.RowNum || y < 0 || y >= GameGrid.ColNum) return null;
 
-            var changes = new List<CellChange>();
-
             if (GameGrid.Cells[x, y] != color)
             {
-                changes.Add(new CellChange(x, y, color));
+                CellChange change = new CellChange(x, y, color);
                 GameGrid.Cells[x, y] = color;
+                return change;
             }
 
-            return changes;
+            return null;
         }
 
         public void MoveBlockDown()
@@ -179,8 +182,8 @@ namespace tetrisDotnet.model
             if (!BlockFits())
             {
                 CurrentBlock.Move(-1, 0);
-                PlaceBlock();
             }
+            PlaceBlock();
         }
 
         public void DropBlock()
@@ -235,7 +238,7 @@ namespace tetrisDotnet.model
             switch (side)
             {
                 case Key.Left:
-                    MessageBox.Show("te");
+                    MessageBox.Show("e");
                     MoveBlockLeft();
                     break;
                 case Key.Right:

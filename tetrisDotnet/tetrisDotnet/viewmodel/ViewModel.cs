@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using tetrisDotnet.model;
@@ -44,6 +45,7 @@ namespace tetrisDotnet.viewmodel
         {
             foreach (var change in changes.Changes)
             {
+                // Todo revoir la logique
                 _cells[change.CellX + 10 * change.CellY].Color = change.Color ?? Colors.DarkGray;
             }
         }

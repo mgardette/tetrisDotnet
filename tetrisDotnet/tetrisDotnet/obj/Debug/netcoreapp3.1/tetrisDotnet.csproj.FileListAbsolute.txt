@@ -118,3 +118,17 @@ C:\Users\User\source\repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netc
 C:\Users\User\source\repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\User\source\repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\User\source\repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\view\GameBoard.g.cs
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\DynamicData.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\GalaSoft.MvvmLight.Extras.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\GalaSoft.MvvmLight.Platform.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\GalaSoft.MvvmLight.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\System.Windows.Interactivity.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\ReactiveUI.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\Splat.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\System.Reactive.dll
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\bin\Debug\netcoreapp3.1\System.Reactive.xml
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\mat-m\Source\Repos\tetrisDotnet\tetrisDotnet\tetrisDotnet\obj\Debug\netcoreapp3.1\view\GameBoard.baml
