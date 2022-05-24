@@ -26,7 +26,6 @@ namespace tetrisDotnet.viewmodel
         public ViewModel()
         {
             var gameGrid = new GameGrid();
-            //StartCommand = ReactiveCommand.CreateFromTask(gameState.Start);
             KeyPressedCommand = ReactiveCommand.Create<string>(k =>
                 gameState.MoveBlockSide((Key)Enum.Parse(typeof(Key), k)));
 
