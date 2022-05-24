@@ -67,9 +67,11 @@ namespace tetrisDotnet.model
                     MoveBlockDown();
                     foreach (Position p in CurrentBlock.TilePositions())
                     {
-                        verif = false;
+                        if(p.Row == 0)
+                        {
+                            verif = false;
+                        }
                     }
-
                     Thread.Sleep(1000);
                 } while (verif);
             }
@@ -145,6 +147,7 @@ namespace tetrisDotnet.model
             foreach(Position p in CurrentBlock.TilePositions())
             {
                 GameGrid.Grid[p.Row, p.Column] = CurrentBlock.Id;
+                //changes.Add(SetCell(p.Row -1, p.Column, Colors.DarkGray));
                 changes.Add(SetCell(p.Row, p.Column, CurrentBlock.getColor()));
             }
 
@@ -157,7 +160,7 @@ namespace tetrisDotnet.model
             }
             else
             {
-                CurrentBlock = BlockQueue.UpdateBlock();      
+                //CurrentBlock = BlockQueue.UpdateBlock();
             }
         }
 
@@ -171,7 +174,6 @@ namespace tetrisDotnet.model
                 GameGrid.Cells[x, y] = color;
                 return change;
             }
-
             return null;
         }
 

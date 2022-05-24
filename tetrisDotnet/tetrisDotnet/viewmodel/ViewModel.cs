@@ -43,11 +43,16 @@ namespace tetrisDotnet.viewmodel
 
         private void OnCellModelChanges(CellChanges changes)
         {
-            foreach (var change in changes.Changes)
+            foreach (CellChange change in changes.Changes)
             {
                 // Todo revoir la logique
-                _cells[change.CellX + 10 * change.CellY].Color = change.Color ?? Colors.DarkGray;
+                if(change != null)
+                {
+                    _cells[190 - change.CellY * 10 + change.CellX].Color = change.Color ?? Colors.DarkGray;
+                }
+                string test = "test";
             }
+            string testt = "test";
         }
 
         public ReadOnlyCollection<cellviewmodel> Cells { get; }
